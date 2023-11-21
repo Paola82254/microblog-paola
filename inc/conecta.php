@@ -20,7 +20,8 @@ mysqli_set_charset($conexao, "utf8");
 if(!$conexao){
     //PARE A APLICAÇÃO E MOSTRE UMA MENSAGEM DE ERRO
     die("Deu Ruim: ".mysqli_connect_error());
-}else{
+}/*  else{
     //SE NÃO A CONEXÃO FOI FEITA COM SUCESSO!
     echo "Beleza, conectado!";
 }
+*/
