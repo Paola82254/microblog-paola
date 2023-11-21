@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2023 às 21:27
+-- Tempo de geração: 21/11/2023 às 21:04
 -- Versão do servidor: 10.4.27-MariaDB
 -- Versão do PHP: 8.1.12
 
@@ -39,15 +39,6 @@ CREATE TABLE `noticias` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `noticias`
---
-
-INSERT INTO `noticias` (`id`, `data`, `titulo`, `texto`, `resumo`, `imagem`, `usuario_id`) VALUES
-(1, '2023-11-14 16:21:19', 'Descoberto oxigênio em Vênus', 'Recentemente a sonda XYZ encontrou traços de oxigênio no planetaNesta manhã, em um belo dia para a astronomia, muito legal', 'venus.png', '', 1),
-(2, '2023-11-14 16:35:27', 'Onda de calor no Brasil', 'Temperaturas muito acima da médiaEfeitos do aquecimento global estão prejudicando a vida', 'sol.svg', '', 1),
-(3, '2023-11-14 16:37:41', 'Nova versão do VS CODE', 'Recentemente o VS CODE foi atualizadoA Microsoft trouxe recursos de IA..', 'vscode.png', '', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -67,9 +58,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'Paola Thomaz', 'Paola100@gmail.com', '123senac', 'admin'),
-(3, 'Beltrano Soares', 'beltrano@msn.com', '000penha', 'admin'),
-(4, 'Chapolin Colorado', 'chapolin@vingadores.com.br', 'marreta', 'admin');
+(5, 'paola', 'paola@msn.com', '$2y$10$TJzGlom5MdRlNwpKkQuegeLYSINhZr0ZNdNCsr0ehXTjl4yKcjgGe', 'editor'),
+(6, 'Fulano', 'fulano@gmail.com', '$2y$10$ysx9XlVA.r7pjcc3MQMNBuPgbuca/7xGLUjeQUjgjit9qwoFu0r.W', 'editor'),
+(7, 'Beatriz', 'bia@msn.com', '$2y$10$n46IRIlpfbGhZRLRTidj0eFsTF5D.nQw4A59ILjZ8MRfsVYIiBjpO', 'editor'),
+(8, 'Lulu', 'lulu@msn.com', '$2y$10$YA.ucfxJbbCJ9ApKy9fyfOxhYPmoufPbQrbBMNs/wDqOJTtyK.ov2', 'editor');
 
 --
 -- Índices para tabelas despejadas
@@ -97,13 +89,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para tabelas despejadas
