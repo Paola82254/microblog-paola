@@ -15,6 +15,8 @@ require "../inc/funcoes-usuarios.php";
 	$senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 	// Chamando a função e repassando os dados a serem inseridos
 	inserirUsuario($conexao, $nome, $email, $senha, $tipo);
+
+	header("location:usuarios.php");
 }
 
 ?>
