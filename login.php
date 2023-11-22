@@ -14,11 +14,6 @@ if (isset($_POST['entrar'])){
 	$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 	/* Buscando no banco através do e-mail se existe um usuário cadastrado */
 	$usuario = buscaUsuario($conexao, $email);
-	
-	echo "<pre>";
-	var_dump($usuario);
-	echo "</pre>";
-
 } //fim isset entrar
 ?>
 
