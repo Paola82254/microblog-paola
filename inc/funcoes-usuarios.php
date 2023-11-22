@@ -40,7 +40,13 @@ function atualizarUsuario ( $conexao, $id, $nome, $email, $senha, $tipo) {
     nome = '$nome', 
     email = '$email',
     senha = '$senha',
-    tipo = '$tipo',
-WHERE id = $id"; // NÃO SE ESQUEÇA DESSA BAGAÇA POR FAVOR! PERIGO!
+    tipo = '$tipo'
+    WHERE id = $id"; // NÃO SE ESQUEÇA DESSA BAGAÇA POR FAVOR! PERIGO!
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
-mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+function excluirUsuario( $conexao, $id ){
+    $sql = "DELETE FROM usuarios WHERE id = $id";
+    
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}
