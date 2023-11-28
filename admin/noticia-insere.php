@@ -29,7 +29,7 @@ if(isset($_POST['inserir'])){
 		<h2 class="text-center">
 		Inserir nova notícia
 		</h2>
-		<!-- O Aributo rnctype com o valor indicado permite ao formulário receber arquivos -->
+		<!-- O Aributo enctype com o valor indicado permite ao formulário receber arquivos -->
 		<form enctype="multipart/form-data" class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">            
 
 			<div class="mb-3">
