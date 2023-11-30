@@ -68,7 +68,9 @@ function lerNoticias($conexao, $idUsuario, $tipoUsuario){
 
 
 /* Usada em noticias.php e páginas da área pública */
-function formataData(){    
+function formataData($data){
+    $dataFormatada = date("d/m/Y H:i", strtotime($data));
+    return $dataFormatada;    
     
 } // fim formataData
 
@@ -152,16 +154,19 @@ function lerTodasAsNoticias($conexao){
 
 /* Usada em noticia.php */
 function lerDetalhes($conexao, $id){
-    $sql = "SELECT noticias.*,
+    $sql = "SELECT noticias.id,
+    noticias.titulo,
+    noticias.data,
+    noticias.imagem,
+    noticias.texto,
     usuarios.nome AS autor_nome
-    FROM noticias
-    JOIN usuarios
+    FROM noticias JOIN usuarios
     ON noticias.usuario_id = usuarios.id
     WHERE noticias.id = $id";
     
 
-   $dadosDaNoticia = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-    return mysqli_fetch_assoc($dadosDaNoticia); 
+   $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    return mysqli_fetch_assoc($resultado); 
 
 } // fim lerDetalhes
 
