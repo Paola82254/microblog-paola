@@ -10,7 +10,9 @@ $tipoUsuario = $_SESSION['tipo'];
 
 // Chamando a função e passando os parâmetros
 $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
-var_dump($listaDeNoticias);
+// var_dump($listaDeNoticias);
+
+
 ?>
 
 
