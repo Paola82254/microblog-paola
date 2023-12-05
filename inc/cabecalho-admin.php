@@ -4,10 +4,9 @@ verificaAcesso();
 
 // Detectando se o link "Sair" foi acionado
 if(isset($_GET["sair"])){
-    //Se foi, "desloga/desconecta" o usuário
+    // Se foi, "desloga/desconecta" o usuário
     logout();
 }
-
 
 // Guardando o nome da página atual
 $pagina = basename($_SERVER['PHP_SELF']);
@@ -47,13 +46,15 @@ $pagina = basename($_SERVER['PHP_SELF']);
             <li class="nav-item">
                 <a class="nav-link" href="meu-perfil.php">Meu perfil</a>
             </li>
-            <!-- SE O USUÁRIO LOGADO FOR DO TIPO "ADMIN" -->
-        <?php if( $_SESSION['tipo'] == 'admin' ){?>         
-            <!--   ENTÃO ELE VERÁ O ITEM ABAIXO NO MENU  -->
+
+    <!-- Se o usuário logado for do tipo 'admin' -->
+    <?php if( $_SESSION['tipo'] == 'admin' ){ ?>
+        <!-- Então ele verá o item abaixo no menu -->            
             <li class="nav-item">
-                <a class="nav-link" href="usuarios.php">Usuários</a>
+              <a class="nav-link" href="usuarios.php">Usuários</a>
             </li>
-        <?php } ?>
+    <?php } ?>
+            
             <li class="nav-item">
                 <a class="nav-link" href="noticias.php">Notícias</a>
             </li>

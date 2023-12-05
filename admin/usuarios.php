@@ -2,25 +2,23 @@
 require_once "../inc/funcoes-usuarios.php";
 require_once "../inc/cabecalho-admin.php";
 
-// Verificando se o usuário pode entrar nessa página
+// Verificando se o usuário pode entrar nesta página
 verificaTipo();
 
-/*Chamamos a função lerUsuarios que ao terminar de fazer os processos, ela retorna os dados dos usuários. */
+/* Chamamos a função lerUsuarios que ao terminar de fazer os
+processos, ela retorna os dados dos usuários. */
 $listaDeUsuarios = lerUsuarios($conexao);
-
 ?>
-
-
-
 
 
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Usuários <span class="badge bg-dark">
-			<?=count($listaDeUsuarios)?>
-		</span>
+		Usuários 
+			<span class="badge bg-dark">
+				<?=count($listaDeUsuarios)?>
+			</span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -42,20 +40,19 @@ $listaDeUsuarios = lerUsuarios($conexao);
 				</thead>
 
 				<tbody>
-<?php foreach($listaDeUsuarios as $usuario ) { ?>
+<?php foreach( $listaDeUsuarios as $usuario ) { ?>
 					<tr>
-
-						<td> <?= $usuario["nome"] ?> </td>
-						<td> <?= $usuario["email"] ?> </td>
-						<td> <?= $usuario["tipo"] ?></td>
+						<td> <?= $usuario['nome'] ?> </td>
+						<td> <?= $usuario['email'] ?> </td>
+						<td> <?= $usuario['tipo'] ?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
-							href="usuario-atualiza.php?id=<?=$usuario['id']?>">
+			href="usuario-atualiza.php?id=<?=$usuario['id']?>">
 							<i class="bi bi-pencil"></i> Atualizar
 							</a>
 						
 							<a class="btn btn-danger excluir" 
-							href="usuario-exclui.php?id=<?=$usuario['id']?>">
+			href="usuario-exclui.php?id=<?=$usuario['id']?>">
 							<i class="bi bi-trash"></i> Excluir
 							</a>
 						</td>

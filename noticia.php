@@ -1,9 +1,10 @@
 <?php
+require "inc/funcoes-noticias.php"; 
 require "inc/cabecalho.php"; 
-require "inc/funcoes-noticias.php";
-$idNoticia = $_GET['id'];
-$dadosDaNoticia = lerDetalhes($conexao, $idNoticia);
 
+$id = $_GET["id"];
+
+$dadosDaNoticia = lerDetalhes($conexao, $id);
 ?>
 
 
@@ -12,9 +13,12 @@ $dadosDaNoticia = lerDetalhes($conexao, $idNoticia);
     <article class="col-12">
         <h2> <?=$dadosDaNoticia['titulo']?> </h2>
         <p class="font-weight-light">
-            <time><?=formataData($dadosDaNoticia['data'])?></time> - <span><?=$dadosDaNoticia['autor_nome']?></span>
+            <time>
+                <?=formataData($dadosDaNoticia['data'])?>
+            </time> 
+            - <span><?=$dadosDaNoticia['autor']?></span>
         </p>
-        <img src="imagens/<?=$dadosDaNoticia['imagem']?>" class="float-start pe-2 img-fluid">
+        <img src="imagens/<?=$dadosDaNoticia['imagem']?>" alt="" class="float-start pe-2 img-fluid">
         <p class="ajusta-texto"><?=$dadosDaNoticia['texto']?></p>
     </article>
     

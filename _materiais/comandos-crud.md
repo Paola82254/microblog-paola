@@ -2,27 +2,27 @@
 
 ## Resumo
 
-- C: CREATE (INSERT) -> Usado para inserir dados
-- R: READ (SELECT) -> Usado para ler/consultar dados
-- U: UPDATE (UPDATE) -> Usado para atualizar dados
-- D: DELETE (DELETE) -> Usado para excluir dados
+- C: CREATE (INSERT) -> usado para inserir dados
+- R: READ (SELECT) -> usado para ler/consultar dados
+- U: UPDATE (UPDATE) -> usado para atualizar dados
+- D: DELETE (DELETE) -> usado para excluir dados
 
 ## Exemplos
 
 ### INSERT na tabela de usuários
--- isso aqui no seu repositório github irá permitir uma visualização melhor do bloco de código porque ele ficará dentro de uma caixinha cinza. Para isso, você tem
-que colocar 3 crases exatamente onde a gente quer que a formatação comece (bem onde começa nosso código) e seguido das 3 crases, vem o nome da linguagem utilizada, nesse caso aqui, o sql, e aí você termina, colocando 3 crases no final do seu código. Assim, você envolverá todo seu código com as 6 crases (3 no começo e 3 no final do código), As 3 primeiras crases juntamente com o nome da linguagem. Veja abaixo:
 
 ```sql
 INSERT INTO usuarios (nome, email, senha, tipo)
 VALUES(
-    'Paola Thomaz',
-    'Paola100@gmail.com',
+    'Tiago B. dos Santos'
+    'tiago@gmail.com',
     '123senac',
-    'admin'    
+    'admin'
 );
+```
 
-INSERT INTO usuarios  (nome, email, senha, tipo)
+```sql
+INSERT INTO usuarios(nome, email, senha, tipo)
 VALUES(
     'Fulano da Silva',
     'fulano@gmail.com',
@@ -40,75 +40,93 @@ VALUES(
     'editor'
 );
 ```
+
 ### SELECT na tabela de usuários
 
+```sql
 SELECT * FROM usuarios;
 
 SELECT nome, email FROM usuarios;
 
-SELECT nome, email FROM usuarios WHERE TIPO = 'admin';
+SELECT nome, email FROM usuarios WHERE tipo = 'admin';
+```
 
-### UPDATE de dados da tabela de usuários
+### UPDATE em dados da tabela de usuários
 
-UPDATE usuarios SET tipo = 'admin'
-WHERE id = 4;
+```sql
+UPDATE usuarios SET tipo = 'admin' 
+WHERE id = 4; 
 
---OBS: NUNCA ESQUEÇA DE PASSAR UMA CONDIÇÃO PARA O UPDATE!
+-- Obs: NUNCA ESQUEÇA DE PASSAR UMA CONDIÇÃO PARA O UPDATE!
+```
 
-### DELETE de dados da tabela de usuários
+### DELETE em dados da tabela de usuários
 
+```sql
 DELETE FROM usuarios WHERE id = 2;
 
---OBS: NUNCA ESQUEÇA DE PASSAR UMA CONDIÇÃO PARA O DELETE!
-
+-- Obs: NUNCA ESQUEÇA DE PASSAR UMA CONDIÇÃO PARA O DELETE!
+```
 
 ### INSERT na tabela de noticias
 
-INSERT INTO noticias(titulo, texto, resumo, usuario_id)
+```sql
+INSERT INTO noticias(titulo, resumo, texto, imagem, usuario_id)
 VALUES(
     'Descoberto oxigênio em Vênus',
-    'Recentemente a sonda XYZ encontrou traços de oxigênio no planeta'
-    'Nesta manhã, em um belo dia para a astronomia, muito legal',
-    'venus.png',
+    'Recentemente o telescópio no Havaí encontrou traços de oxigênio no planeta',
+    'Nesta manhã, em um belo dia para a astronomia, foi feita uma descoberta incrível e muito bacana demais da conta que legal...',
+    'venus.jpg',
     1
 );
 
-INSERT INTO noticias(titulo, texto, resumo, usuario_id)
+INSERT INTO noticias(titulo, resumo, texto, imagem, usuario_id)
 VALUES(
-    'Nova versão do VS CODE',
-    'Recentemente o VS CODE foi atualizado'
-    'A Microsoft trouxe recursos de IA..',
+    'Nova versão do VSCode',
+    'Recentemente o VSCode foi atualizado...',
+    'A Microsoft trouxe recursos de Inteligência Artificial...',
     'vscode.png',
     4
 );
 
-INSERT INTO noticias(titulo, texto, resumo, usuario_id)
+INSERT INTO noticias(titulo, resumo, texto, imagem, usuario_id)
 VALUES(
     'Onda de calor no Brasil',
-    'Temperaturas muito acima da média'
-    'Efeitos do aquecimento global estão prejudicando a vida',
+    'Temperaturas muito acima da média',
+    'Efeitos do aquecimento global estão prejudicando a vida...',
     'sol.svg',
     1
 );
+```
 
-### Objetivo: consulta que mostre a data e o título da notícia e o nome do autor desta notícia.
-### SELECT COM JOIN (CONSULTA COM JUNÇÃO DE TABELAS)
+### Objetivo: consulta que mostre a data e o titulo da noticia e o nome do autor desta noticia.
+
+#### SELECT COM JOIN (CONSULTA COM JUNÇÃO DE TABELAS)
+
+```sql
 -- Especificamos o nome da coluna junto com o nome da tabela
 SELECT 
-
---plural se referem Às tabelas (noticias-tabela noticias, usuarios- tabela de usuarios e cada coisa no singular é a coluna nome- coluna de nome, titulo -coluna de titulo...)
-    noticias.data,
-    noticias.titulo,
+    noticias.data, 
+    noticias.titulo, 
     usuarios.nome
 
---Especificamos quais tabelas serão "juntadas/combinadas"
+-- Especificamos quais tabelas serão "juntadas/combinadas"
 FROM noticias JOIN usuarios
 
-Critério para o JOIN funcionar
+-- Critério para o JOIN funcionar:
 -- Fazemos uma comparação entre a chave estrangeira (FK)
 -- com a chave primária (PK)
-ON noticias.usuario_id = usuarios.id
+ON noticias.usuario_id = usuarios.id    
 
--- Opcional (ordenação/classificação pela data)
--- DESC indica a ordem decrescente (mais recente vem primeiro)
-ORDER BY data DESC; -- opcional
+-- opcional (ordenação/classificação pela data)
+-- DESC indica ordem decrescente (mais recente vem primeiro)
+ORDER BY data DESC; 
+```
+
+
+
+
+
+
+
+
