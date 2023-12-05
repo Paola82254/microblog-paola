@@ -56,7 +56,6 @@ if(isset($_POST['entrar'])){
 	
 } // fim if isset entrar
 ?>
-
 <div class="row">
     <div class="bg-white rounded shadow col-12 my-1 py-4">
     <h2 class="text-center fw-light">Acesso à área administrativa</h2>
